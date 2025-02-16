@@ -1,0 +1,12 @@
+# Changes here will be overwritten by Copier
+AnswerStrategy: minimum
+Authors: Jakob Hoffmann <jfb-hoffmann@homtail.de>
+JuliaIndentation: 4
+JuliaMinVersion: '1.10'
+License: MIT
+LicenseCopyrightHolders: Jakob Hoffmann
+PackageName: Blockmodels
+PackageOwner: jfb-h
+PackageUUID: d9f899e1-303a-530d-8675-c26bf1ea3f35
+_commit: v0.14.1
+_src_path: https://github.com/JuliaBesties/BestieTemplate.jl

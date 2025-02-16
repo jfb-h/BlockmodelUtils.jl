@@ -1,0 +1,7 @@
+name = "Blockmodels"
+uuid = "d9f899e1-303a-530d-8675-c26bf1ea3f35"
+authors = ["Jakob Hoffmann <jfb-hoffmann@homtail.de>"]
+version = "0.1.0"
+
+[compat]
+julia = "1.10"
