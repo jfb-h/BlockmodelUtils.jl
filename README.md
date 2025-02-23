@@ -10,6 +10,41 @@
 [![DOI](https://zenodo.org/badge/DOI/FIXME)](https://doi.org/FIXME)
 [![BestieTemplate](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/JuliaBesties/BestieTemplate.jl/main/docs/src/assets/badge.json)](https://github.com/JuliaBesties/BestieTemplate.jl)
 
+Represent, analyse, and plot [network blockmodels](https://en.wikipedia.org/wiki/Blockmodeling), i.e., blocked graph adjacency matrices based on some node partition. As of now, this package does *not* contain functionality to infer node partitions (i.e., clusters or equivalence-based) from network structure.
+
+# Getting started
+
+For a graph `g` and a vector of group labels `groups`, create a blockmodel with the `blockmodel` function:
+
+```{julia}
+using Graphs, Blockmodels
+
+n = 20
+g = erdos_renyi(n, 0.1)
+groups = rand('a':'d', n)
+
+bm = blockmodel(g, groups)
+```
+
+The resulting `Blockmodel` prints the blockdensity matrix:
+
+```{juliarepl}
+Blockmodel{Int64, SimpleGraph{Int64}}
+4 groups with sizes [6, 7, 4, 3]
+┌───┬───────┬───────┬───────┬───────┐
+│   │     1 │     2 │     3 │     4 │
+├───┼───────┼───────┼───────┼───────┤
+│ a │ 0.200 │ 0.214 │ 0.250 │ 0.278 │
+├───┼───────┼───────┼───────┼───────┤
+│ b │ 0.214 │ 0.095 │ 0.179 │ 0.286 │
+├───┼───────┼───────┼───────┼───────┤
+│ c │ 0.250 │ 0.179 │ 0.167 │ 0.083 │
+├───┼───────┼───────┼───────┼───────┤
+│ d │ 0.278 │ 0.286 │ 0.083 │ 0.000 │
+└───┴───────┴───────┴───────┴───────┘
+```
+
+
 ## How to Cite
 
 If you use Blockmodels.jl in your work, please cite using the reference given in [CITATION.cff](https://github.com/jfb-h/Blockmodels.jl/blob/main/CITATION.cff).
