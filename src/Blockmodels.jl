@@ -12,7 +12,7 @@ export permuteplot!, permuteplot
 export flowerplot!, flowerplot
 export densityplot!, densityplot
 
-# TODO: tests, docs, readme, printing
+# TODO: docs, workflows
 
 struct Blockmodel{T<:Real,G<:AbstractGraph}
     permidx::Vector{Int}
@@ -36,11 +36,14 @@ function _print_densities(m, labels)
     )
 end
 
+Base.show(io::IO, bm::Blockmodel) = print(io, typeof(bm))
 function Base.show(io::IO, ::MIME"text/plain", bm::Blockmodel)
     m = density(bm)
     println(io, typeof(bm))
-    println(io, "$(size(m, 1)) groups with sizes ", groupsizes(bm))
-    _print_densities(m, bm.labels)
+    if !get(io, :compact, false)
+        println(io, "$(size(m, 1)) groups with sizes ", groupsizes(bm))
+        _print_densities(m, bm.labels)
+    end
 end
 
 function blockmodel(g::AbstractGraph, groups::AbstractVector; by=identity)
@@ -59,7 +62,9 @@ Base.Matrix(bm::Blockmodel) = Matrix(bm.blocks)
 # Base.iterate(bm::Blockmodel) = iterate(bm.blocks.blocks)
 # Base.length(bm::Blockmodel) = length(bm.blocks.blocks)
 
-function Graphs.density(bm::Blockmodel{T,G}) where {T, G<:AbstractSimpleGraph} 
+function Graphs.density(bm::Blockmodel{T,G}) where {
+    T<:Integer, G<:AbstractSimpleGraph
+} 
     B = bm.blocks.blocks
     return map(CartesianIndices(B)) do i
         L = first(Tuple(i)) == last(Tuple(i)) ?
