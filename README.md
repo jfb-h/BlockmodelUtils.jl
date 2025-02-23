@@ -16,7 +16,7 @@ Represent, analyse, and plot [network blockmodels](https://en.wikipedia.org/wiki
 
 For a graph `g` and a vector of group labels `groups`, create a blockmodel with the `blockmodel` function:
 
-```{julia}
+```julia
 using Graphs, Blockmodels
 
 n = 20
@@ -28,7 +28,7 @@ bm = blockmodel(g, groups)
 
 The resulting `Blockmodel` prints the blockdensity matrix:
 
-```{juliarepl}
+```juliarepl
 Blockmodel{Int64, SimpleGraph{Int64}}
 4 groups with sizes [6, 7, 4, 3]
 ┌───┬───────┬───────┬───────┬───────┐
