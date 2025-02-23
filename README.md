@@ -28,7 +28,7 @@ bm = blockmodel(g, groups)
 
 The resulting `Blockmodel` prints the blockdensity matrix:
 
-```juliarepl
+```julia-repl
 Blockmodel{Int64, SimpleGraph{Int64}}
 4 groups with sizes [6, 7, 4, 3]
 ┌───┬───────┬───────┬───────┬───────┐
