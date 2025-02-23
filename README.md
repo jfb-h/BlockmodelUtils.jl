@@ -10,7 +10,7 @@
 [![DOI](https://zenodo.org/badge/DOI/FIXME)](https://doi.org/FIXME)
 [![BestieTemplate](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/JuliaBesties/BestieTemplate.jl/main/docs/src/assets/badge.json)](https://github.com/JuliaBesties/BestieTemplate.jl)
 
-Represent, analyse, and plot [network blockmodels](https://en.wikipedia.org/wiki/Blockmodeling), i.e., blocked graph adjacency matrices based on some node partition. As of now, this package does *not* contain functionality to infer node partitions (i.e., clusters or equivalence-based) from network structure.
+Represent, analyse, and plot [network blockmodels](https://en.wikipedia.org/wiki/Blockmodeling), i.e., blocked graph adjacency matrices based on some node partition. As of now, this package does *not* contain functionality to infer node partitions (i.e., clusters or equivalence-based) from network structure. Its main purpose is instead to provide a simple representation of blockmodels and some plotting utilities.
 
 # Getting started
 
