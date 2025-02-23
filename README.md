@@ -7,7 +7,6 @@
 [![Docs workflow Status](https://github.com/jfb-h/Blockmodels.jl/actions/workflows/Docs.yml/badge.svg?branch=main)](https://github.com/jfb-h/Blockmodels.jl/actions/workflows/Docs.yml?query=branch%3Amain)
 [![Coverage](https://codecov.io/gh/jfb-h/Blockmodels.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/jfb-h/Blockmodels.jl)
 [![BestieTemplate](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/JuliaBesties/BestieTemplate.jl/main/docs/src/assets/badge.json)](https://github.com/JuliaBesties/BestieTemplate.jl)
-[![DOI](https://zenodo.org/badge/DOI/FIXME)](https://doi.org/FIXME)
 
 Represent, analyse, and plot [network blockmodels](https://en.wikipedia.org/wiki/Blockmodeling), i.e., blocked graph adjacency matrices based on some node partition. As of now, this package does *not* contain functionality to infer node partitions (i.e., clusters or equivalence-based) from network structure. Its main purpose is instead to provide a simple representation of blockmodels and some plotting utilities.
 

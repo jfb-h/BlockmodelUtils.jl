@@ -1,5 +1,4 @@
 [deps]
 Blockmodels = "d9f899e1-303a-530d-8675-c26bf1ea3f35"
-CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 Graphs = "86223c79-3864-5bf0-83f7-82e725a168b6"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
