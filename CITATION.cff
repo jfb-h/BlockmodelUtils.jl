@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: Blockmodels.jl
+title: BlockmodelUtils.jl
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -7,7 +7,7 @@ type: software
 authors:
   - given-names: Jakob Hoffmann
     email: jfb-hoffmann@homtail.de
-repository-code: 'https://github.com/jfb-h/Blockmodels.jl'
+repository-code: 'https://github.com/jfb-h/BlockmodelUtils.jl'
 abstract: >-
   Julia package for representing and visualizing network
   blockmodels

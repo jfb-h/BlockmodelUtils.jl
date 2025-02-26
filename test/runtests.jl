@@ -1,4 +1,4 @@
-using Blockmodels
+using BlockmodelUtils
 using Graphs
 using Test
 
@@ -22,7 +22,7 @@ S = [6 11; 11 8]
 groups = repeat(['a', 'b'], inner = 5)
 bm = blockmodel(g, groups)
 
-@testset "Blockmodels.jl" begin
+@testset "BlockmodelUtils.jl" begin
     @test bm isa Blockmodel
 
     m = Matrix(bm)
@@ -30,7 +30,7 @@ bm = blockmodel(g, groups)
     @test m isa Matrix{Int64}
     @test m[bm.permidx, bm.permidx] == A
 
-    @test Blockmodels.groupsizes(bm) == [5, 5]
+    @test BlockmodelUtils.groupsizes(bm) == [5, 5]
 
     @test bm.labels == ["a", "b"]
 

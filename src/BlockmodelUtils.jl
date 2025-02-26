@@ -1,4 +1,4 @@
-module Blockmodels
+module BlockmodelUtils
 
 import IterTools: groupby, partition
 import PrettyTables: pretty_table, ft_printf, @crayon_str

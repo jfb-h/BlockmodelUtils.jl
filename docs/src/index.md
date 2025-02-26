@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = Blockmodels
+CurrentModule = BlockmodelUtils
 ```
 
-# Blockmodels
+# BlockmodelUtils
 
-Documentation for the [Blockmodels.jl](https://github.com/jfb-h/Blockmodels.jl) Julia package to represent, analyse, and plot network blockmodels, i.e., blocked graph adjacency matrices according to some node partition. As of now, this package does *not* contain functionality to infer node partitions from network structure (i.e., clusters or equivalence-based partitions). Its main purpose is instead to provide a simple representation of blockmodels and some plotting utilities.
+Documentation for the [BlockmodelUtils.jl](https://github.com/jfb-h/BlockmodelUtils.jl) Julia package to represent, analyse, and plot network blockmodels, i.e., blocked graph adjacency matrices according to some node partition. As of now, this package does *not* contain functionality to infer node partitions from network structure (i.e., clusters or equivalence-based partitions). Its main purpose is instead to provide a simple representation of blockmodels and some plotting utilities.
 
 # Installation
 
-To install this package, enter the package manager at the REPL by pressing `]` and write `add Blockmodels`.
+To install this package, enter the package manager at the REPL by pressing `]` and write `add BlockmodelUtils`.
 
 Plotting utilities are provided by a package extension using the [Makie.jl](https://docs.makie.org/stable/) ecosystem, so to use them you will also have to install one of the Makie backends, e.g. `CairoMakie`.
 
@@ -17,7 +17,7 @@ Plotting utilities are provided by a package extension using the [Makie.jl](http
 For a graph `g` and a vector of group labels `groups`, create a blockmodel with the `blockmodel` function:
 
 ```julia
-using Graphs, Blockmodels
+using Graphs, BlockmodelUtils
 
 # create a random graph and node partition
 n = 20

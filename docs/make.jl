@@ -1,7 +1,7 @@
-using Blockmodels
+using BlockmodelUtils
 using Documenter
 
-DocMeta.setdocmeta!(Blockmodels, :DocTestSetup, :(using Blockmodels); recursive = true)
+DocMeta.setdocmeta!(BlockmodelUtils, :DocTestSetup, :(using BlockmodelUtils); recursive = true)
 
 const page_rename = Dict("developer.md" => "Developer docs") # Without the numbers
 const numbered_pages = [
@@ -10,12 +10,12 @@ const numbered_pages = [
 ]
 
 makedocs(;
-    modules = [Blockmodels],
+    modules = [BlockomodelUtils],
     authors = "Jakob Hoffmann <jfb-hoffmann@homtail.de>",
-    repo = "https://github.com/jfb-h/Blockmodels.jl/blob/{commit}{path}#{line}",
-    sitename = "Blockmodels.jl",
-    format = Documenter.HTML(; canonical = "https://jfb-h.github.io/Blockmodels.jl"),
+    repo = "https://github.com/jfb-h/BlockomodelUtils.jl/blob/{commit}{path}#{line}",
+    sitename = "BlockomodelUtils.jl",
+    format = Documenter.HTML(; canonical = "https://jfb-h.github.io/BlockomodelUtils.jl"),
     pages = ["index.md"; numbered_pages],
 )
 
-deploydocs(; repo = "github.com/jfb-h/Blockmodels.jl")
+deploydocs(; repo = "github.com/jfb-h/BlockmodelUtils.jl")

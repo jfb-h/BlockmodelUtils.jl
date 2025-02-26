@@ -1,6 +1,6 @@
-module BlockmodelsMakieExt
+module BlockmodelUtilsMakieExt
 
-using Blockmodels
+using BlockmodelUtils
 import Makie
 
 
@@ -13,7 +13,7 @@ function midpoints(x)
     return res
 end
 
-function Blockmodels.permuteplot!(
+function BlockmodelUtils.permuteplot!(
         ax, bm::Blockmodel;
         cellcolor = :black,
         linecolor = :black,
@@ -23,7 +23,7 @@ function Blockmodels.permuteplot!(
         xticklabels = bm.labels,
         yticklabels = bm.labels,
     )
-    pcounts = cumsum(Blockmodels.groupsizes(bm))
+    pcounts = cumsum(BlockmodelUtils.groupsizes(bm))
     centers = midpoints(vcat(0, pcounts)) .+ 0.5
 
     Makie.heatmap!(ax, Matrix(bm); colormap = [backgroundcolor, cellcolor])
@@ -53,7 +53,7 @@ function circlepoints(N, p0, r)
 end
 
 function circlelayout(bm::Blockmodel; expand = 1.0)
-    sizes = Blockmodels.groupsizes(bm)
+    sizes = BlockmodelUtils.groupsizes(bm)
     Nproj = length(sizes)
     centers = vcat([Makie.Point2(0.0, 0.0)], circlepoints(Nproj - 1, (0.0, 0.0), 5.0))
     return mapreduce(vcat, centers, sizes) do c, s
@@ -61,7 +61,7 @@ function circlelayout(bm::Blockmodel; expand = 1.0)
     end
 end
 
-function Blockmodels.flowerplot!(
+function BlockmodelUtils.flowerplot!(
         ax, bm;
         linecolor = :grey70,
         linewidth = 1,
@@ -72,13 +72,13 @@ function Blockmodels.flowerplot!(
     positions = circlelayout(bm)
     edgepos = [
         (positions[bm.permidx[e.src]], positions[bm.permidx[e.dst]])
-        for e in Blockmodels.Graphs.edges(bm.graph)
+        for e in BlockmodelUtils.Graphs.edges(bm.graph)
     ]
 
     Makie.linesegments!(ax, edgepos; color = linecolor, linewidth)
     Makie.scatter!(ax, positions; color = nodecolor, args...)
 
-    sizes = Blockmodels.groupsizes(bm)
+    sizes = BlockmodelUtils.groupsizes(bm)
 
     if showlabels
         textpos = vcat(
@@ -99,14 +99,14 @@ function Blockmodels.flowerplot!(
     return ax
 end
 
-function Blockmodels.densityplot!(
+function BlockmodelUtils.densityplot!(
         ax, bm::Blockmodel;
         xticklabels = bm.labels,
         yticklabels = bm.labels,
         rotate_xlabels = false,
         kwargs...
     )
-    m = Blockmodels.Graphs.density(bm)
+    m = BlockmodelUtils.Graphs.density(bm)
 
     Makie.heatmap!(ax, m; kwargs...)
 
@@ -139,8 +139,8 @@ function _impl_plotfun(fun!, bm::Blockmodel; kwargs...)
     return fg
 end
 
-Blockmodels.permuteplot(bm; kwargs...) = _impl_plotfun(permuteplot!, bm; kwargs...)
-Blockmodels.densityplot(bm; kwargs...) = _impl_plotfun(densityplot!, bm; kwargs...)
-Blockmodels.flowerplot(bm; kwargs...) = _impl_plotfun(flowerplot!, bm; kwargs...)
+BlockmodelUtils.permuteplot(bm; kwargs...) = _impl_plotfun(permuteplot!, bm; kwargs...)
+BlockmodelUtils.densityplot(bm; kwargs...) = _impl_plotfun(densityplot!, bm; kwargs...)
+BlockmodelUtils.flowerplot(bm; kwargs...) = _impl_plotfun(flowerplot!, bm; kwargs...)
 
 end
