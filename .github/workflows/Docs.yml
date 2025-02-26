@@ -45,9 +45,9 @@ jobs:
         run: |
           julia --project=docs -e '
             using Documenter: DocMeta, doctest
-            using Blockmodels
-            DocMeta.setdocmeta!(Blockmodels, :DocTestSetup, :(using Blockmodels); recursive=true)
-            doctest(Blockmodels)'
+            using BlockmodelUtils
+            DocMeta.setdocmeta!(BlockmodelUtils, :DocTestSetup, :(using BlockmodelUtils); recursive=true)
+            doctest(BlockmodelUtils)'
       - name: Generate and deploy documentation
         run: julia --project=docs docs/make.jl
         env:
