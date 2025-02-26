@@ -10,11 +10,11 @@ const numbered_pages = [
 ]
 
 makedocs(;
-    modules = [BlockomodelUtils],
+    modules = [BlockmodelUtils],
     authors = "Jakob Hoffmann <jfb-hoffmann@homtail.de>",
-    repo = "https://github.com/jfb-h/BlockomodelUtils.jl/blob/{commit}{path}#{line}",
-    sitename = "BlockomodelUtils.jl",
-    format = Documenter.HTML(; canonical = "https://jfb-h.github.io/BlockomodelUtils.jl"),
+    repo = "https://github.com/jfb-h/BlockmodelUtils.jl/blob/{commit}{path}#{line}",
+    sitename = "BlockmodelUtils.jl",
+    format = Documenter.HTML(; canonical = "https://jfb-h.github.io/BlockmodelUtils.jl"),
     pages = ["index.md"; numbered_pages],
 )
 
