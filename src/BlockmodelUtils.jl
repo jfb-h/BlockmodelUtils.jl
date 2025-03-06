@@ -175,6 +175,7 @@ The first group is placed in the center.
 - `edgewidth = 1`
 - `nodecolor = :black`
 - `showlabels = true`
+- `radii = fill(1, length(bm.labels))`
 - `args...` further arguments are passed to `Makie.scatter`
 """
 flowerplot!, flowerplot
