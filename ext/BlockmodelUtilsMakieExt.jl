@@ -71,8 +71,9 @@ function BlockmodelUtils.flowerplot!(
         args...
     )
     positions = circlelayout(bm; radii)
+    invidx = sortperm(bm.permidx)
     edgepos = [
-        (positions[bm.permidx[e.src]], positions[bm.permidx[e.dst]])
+        (positions[invidx[e.src]], positions[invidx[e.dst]])
         for e in BlockmodelUtils.Graphs.edges(bm.graph)
     ]
 
