@@ -2,9 +2,9 @@
 CurrentModule = BlockmodelUtils
 ```
 
-# BlockmodelUtils
+# Introduction
 
-Documentation for the [BlockmodelUtils.jl](https://github.com/jfb-h/BlockmodelUtils.jl) Julia package to represent, analyse, and plot network blockmodels, i.e., blocked graph adjacency matrices according to some node partition. As of now, this package does *not* contain functionality to infer node partitions from network structure (i.e., clusters or equivalence-based partitions). Its main purpose is instead to provide a simple representation of blockmodels and some plotting utilities.
+[BlockmodelUtils.jl](https://github.com/jfb-h/BlockmodelUtils.jl) is a Julia package to represent, analyse, and plot network blockmodels, i.e., blocked graph adjacency matrices according to some node partition. As of now, this package does *not* contain functionality to infer node partitions from network structure (i.e., clusters or equivalence-based partitions). Its main purpose is instead to provide a simple representation of blockmodels and some plotting utilities.
 
 # Installation
 
