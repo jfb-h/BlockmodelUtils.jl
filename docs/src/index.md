@@ -71,6 +71,8 @@ permuteplot!(ax1, bm; linecolor=:grey70, framecolor=:black)
 densityplot!(ax2, bm; colormap=:greys)
 flowerplot!(ax3, bm; nodecolor=coalesce.(indexin(groups, 'a':'g')))
 
+fig
+
 save("bmplot.png", fig); nothing #hide
 ```
 
