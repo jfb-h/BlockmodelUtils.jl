@@ -73,3 +73,5 @@ flowerplot!(ax3, bm; nodecolor=coalesce.(indexin(groups, 'a':'g')))
 
 save("bmplot.png", fig); nothing #hide
 ```
+
+![](bmplot.png)
