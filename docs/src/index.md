@@ -45,3 +45,31 @@ Blockmodel{Int64, SimpleGraph{Int64}}
 │ d │ 0.278 │ 0.286 │ 0.083 │ 0.000 │
 └───┴───────┴───────┴───────┴───────┘
 ```
+
+# Plotting
+
+The package contains an extension for `Makie.jl` to plot blockmodels in a variety of ways. Here's an example showcasing the three available functions `permuteplot`, `densityplot` and `flowerplot`:
+
+```@example
+using Graphs
+using BlockmodelUtils
+using CairoMakie
+
+n_groups, s_groups = 7, 20
+g = stochastic_block_model(5.0, 0.5, fill(s_groups, n_groups))
+
+groups = repeat('a':'g'; inner=s_groups)
+bm = blockmodel(g, groups)
+
+fig = Figure(size=(1000, 300));
+
+ax1 = Axis(fig[1,1])
+ax2 = Axis(fig[1,2])
+ax3 = Axis(fig[1,3])
+
+permuteplot!(ax1, bm; linecolor=:grey70, framecolor=:black)
+densityplot!(ax2, bm; colormap=:greys)
+flowerplot!(ax3, bm; nodecolor=coalesce.(indexin(groups, 'a':'g')))
+
+save("bmplot.png", fig); nothing #hide
+```
