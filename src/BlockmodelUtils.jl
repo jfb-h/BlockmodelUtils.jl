@@ -14,6 +14,9 @@ export densityplot!, densityplot
 
 # TODO: docs, workflows
 
+"""
+Struct representing a graph's blocked adjacency matrix.
+"""
 struct Blockmodel{T <: Real, G <: AbstractGraph}
     permidx::Vector{Int}
     blocks::BlockMatrix{T}
@@ -47,6 +50,22 @@ function Base.show(io::IO, ::MIME"text/plain", bm::Blockmodel)
     end
 end
 
+"""
+    blockmodel(g, groups; by=identity)
+
+Create a `Blockmodel` from `Graphs.AbstractGraph` `g` and vector of
+group memberships `groups`. The function passed to `by` used to order
+the groups in the blockmodel.
+
+# Example
+
+```julia
+using Graphs, BlockmodelUtils
+
+g = erdos_renyi(20, 0.1)
+gs = rand(['a', 'b'], 20)
+bm = blockmodel(g, gs)
+"""
 function blockmodel(g::AbstractGraph, groups::AbstractVector; by = identity)
     p = sortperm(groups; by)
     s = length.(groupby(identity, groups[p]))
@@ -56,6 +75,24 @@ function blockmodel(g::AbstractGraph, groups::AbstractVector; by = identity)
     return Blockmodel(p, b, l, g)
 end
 
+"""
+    map(fun, bm::Blockmodel)
+
+Map function fun over the blocks of the `Blockmodel` bm and return a
+k by k matrix, where k is the number of groups constituting the blockmodel.
+
+# Example
+
+```julia
+using Graphs, BlockmodelUtils
+
+g = erdos_renyi(20, 0.1)
+gs = rand(['a', 'b'], 20)
+bm = blockmodel(g, gs)
+
+map(sum, bm) # number of edges in each block
+```
+"""
 Base.map(fun, bm::Blockmodel) = map(fun, bm.blocks.blocks)
 Base.Matrix(bm::Blockmodel) = Matrix(bm.blocks)
 
@@ -63,6 +100,12 @@ Base.Matrix(bm::Blockmodel) = Matrix(bm.blocks)
 # Base.iterate(bm::Blockmodel) = iterate(bm.blocks.blocks)
 # Base.length(bm::Blockmodel) = length(bm.blocks.blocks)
 
+"""
+    density(bm::Blockmodel)
+
+Compute the blockdensity matrix for `Blockmodel` `bm`. For diagonal blocks, the
+diagonal is subtracted from the number of possible edges.
+"""
 function Graphs.density(bm::Blockmodel{T, G}) where {
         T <: Integer, G <: AbstractSimpleGraph,
     }
