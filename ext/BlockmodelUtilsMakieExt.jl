@@ -63,8 +63,8 @@ end
 
 function BlockmodelUtils.flowerplot!(
         ax, bm;
-        linecolor = :grey70,
-        linewidth = 1,
+        edgecolor = :grey70,
+        edgewidth = 1,
         nodecolor = :black,
         showlabels = true,
         args...
@@ -75,7 +75,7 @@ function BlockmodelUtils.flowerplot!(
         for e in BlockmodelUtils.Graphs.edges(bm.graph)
     ]
 
-    Makie.linesegments!(ax, edgepos; color = linecolor, linewidth)
+    Makie.linesegments!(ax, edgepos; color = edgecolor, linewidth = edgewidth)
     Makie.scatter!(ax, positions; color = nodecolor, args...)
 
     sizes = BlockmodelUtils.groupsizes(bm)

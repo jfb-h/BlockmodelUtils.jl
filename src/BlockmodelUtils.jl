@@ -75,13 +75,65 @@ function Graphs.density(bm::Blockmodel{T, G}) where {
     end
 end
 
+
 function densityplot! end
 function densityplot end
+
+"""
+    densityplot!(ax, bm)
+    densityplot(bm)
+
+Plot the block density matrix as a heatmap.
+
+# Attributes
+
+- `xticklabels = bm.labels`
+- `yticklabels = bm.labels`
+- `rotate_xlabels` = false
+- `kwargs...` are passed to `Makie.heatmap`
+"""
+densityplot!, densityplot
+
 
 function permuteplot! end
 function permuteplot end
 
+"""
+    permuteplot!(ax, bm)
+    permuteplot(bm)
+
+Plot the permuted adjacency matrix with a grid outlining the blockmodel blocks.
+
+# Attributes
+
+- `cellcolor = :black`
+- `linecolor = :black`
+- `framecolor = linecolor`
+- `rotate_xlabels = fale`
+- `xticklabels = bm.labels`
+- `yticklabels = bm.labels`
+"""
+permuteplot!, permuteplot
+
+
 function flowerplot! end
 function flowerplot end
+
+"""
+    flowerplot!(ax, bm)
+    flowerplot(bm)
+
+Plot the network with nodes positioned in circles according to the blockmodel groups.
+The first group is placed in the center.
+
+# Attributes
+
+- `edgecolor = :grey70`
+- `edgewidth = 1`
+- `nodecolor = :black`
+- `showlabels = true`
+- `args...` further arguments are passed to `Makie.scatter`
+"""
+flowerplot!, flowerplot
 
 end
