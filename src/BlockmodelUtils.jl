@@ -52,7 +52,7 @@ function blockmodel(g::AbstractGraph, groups::AbstractVector; by = identity)
     s = length.(groupby(identity, groups[p]))
     l = string.(unique(groups[p]))
     a = adjacency_matrix(g)
-    b = BlockMatrix(a, s, s)
+    b = BlockMatrix(a[p, p], s, s)
     return Blockmodel(p, b, l, g)
 end
 
