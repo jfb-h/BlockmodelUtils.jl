@@ -101,10 +101,6 @@ map(sum, bm) # number of edges in each block
 Base.map(fun, bm::Blockmodel) = map(fun, bm.blocks.blocks)
 Base.Matrix(bm::Blockmodel) = Matrix(bm.blocks)
 
-# Base.iterate(bm::Blockmodel, state) = iterate(bm.blocks.blocks, state)
-# Base.iterate(bm::Blockmodel) = iterate(bm.blocks.blocks)
-# Base.length(bm::Blockmodel) = length(bm.blocks.blocks)
-
 """
     density(bm::Blockmodel)
 
