@@ -7,8 +7,17 @@ Compute Krackhardt's EI-index (Krackhardt & Stern 1988) for graph `g` and vector
 defined as (E - I) / (E + I) for external (between group) edges E and internal (withing group) edges I.
 
 Specify the `level` at wich to compute the index by setting the respective keyword to `graph`, `group`, or `node`.
-
 For directed `g`, specify the `mode` as `both`, `in`, or `out`. For `level=graph`, the three modes will be the same.
+
+# Example
+
+```julia
+using Graphs, BlockmodelUtils
+
+g = erdos_renyi(20, 0.1);
+gs = rand('a':'c', 20);
+ei_index(g, gs; level=:group)
+```
 """
 function ei_index(g::AbstractGraph, groups::AbstractVector; level = :graph, mode = :both)
     return ei_index(isdir(g), g, groups; level, mode)
