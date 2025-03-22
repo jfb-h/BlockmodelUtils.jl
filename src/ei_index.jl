@@ -20,11 +20,11 @@ end
 
 function ei_index(::Val{true}, g, groups; level, mode)
     if mode == :both
-        _ei_index(all_neighbors, g, groups; level)
+        return _ei_index(all_neighbors, g, groups; level)
     elseif mode == :in
-        _ei_index(inneighbors, g, groups; level)
+        return _ei_index(inneighbors, g, groups; level)
     elseif mode == :out
-        _ei_index(outneighbors, g, groups; level)
+        return _ei_index(outneighbors, g, groups; level)
     else
         throw(ArgumentError("mode $mode not supported."))
     end
@@ -36,7 +36,7 @@ function _ei_index(nbfun, g, groups; level)
     elseif level == :group
         return _ei_group(nbfun, g, groups)
     elseif level == :node
-        return _ei_node(nbfun,g, groups)
+        return _ei_node(nbfun, g, groups)
     else
         throw(ArgumentError("level $level not supported."))
     end
@@ -59,7 +59,7 @@ function _ei_group(nbfun, g, groups::Vector{T}) where {T}
             end
         end
     end
-    return Dict(k => (L[k] - 2*I[k]) / L[k] for k in keys(L))
+    return Dict(k => (L[k] - 2 * I[k]) / L[k] for k in keys(L))
 end
 
 function _ei_node(nbfun, g, groups)
