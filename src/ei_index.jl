@@ -15,7 +15,7 @@ function ei_index(g::AbstractGraph, groups::AbstractVector; level = :graph, mode
 end
 
 function ei_index(::Val{false}, g, groups; level, mode)
-    return _ei_index(neighbors, g, groups; level)
+    return _ei_index(all_neighbors, g, groups; level)
 end
 
 function ei_index(::Val{true}, g, groups; level, mode)

@@ -3,17 +3,16 @@ using Graphs
 using Test
 
 A = [
-    0 0 0 0 0   0 1 1 0 0;
-    0 0 1 1 0   0 1 1 1 0;
-    0 1 0 0 0   0 0 0 1 0;
-    0 1 0 0 1   0 1 0 0 1;
-    0 0 0 1 0   1 1 1 0 0;
-
-    0 0 0 0 1   0 0 1 0 0;
-    1 1 0 1 1   0 0 0 1 1;
-    1 1 0 0 1   1 0 0 0 0;
-    0 1 1 0 0   0 1 0 0 1;
-    0 0 0 1 0   0 1 0 1 0
+    0 0 0 0 0 0 1 1 0 0;
+    0 0 1 1 0 0 1 1 1 0;
+    0 1 0 0 0 0 0 0 1 0;
+    0 1 0 0 1 0 1 0 0 1;
+    0 0 0 1 0 1 1 1 0 0;
+    0 0 0 0 1 0 0 1 0 0;
+    1 1 0 1 1 0 0 0 1 1;
+    1 1 0 0 1 1 0 0 0 0;
+    0 1 1 0 0 0 1 0 0 1;
+    0 0 0 1 0 0 1 0 1 0
 ]
 
 g = SimpleGraph(A)
@@ -21,7 +20,7 @@ g = SimpleGraph(A)
 groups = ['b', 'a', 'a', 'a', 'b', 'a', 'b', 'a', 'b', 'b']
 bm = blockmodel(g, groups)
 
-@testset "BlockmodelUtils.jl" begin
+@testset "blockmodel" begin
     @test bm isa Blockmodel
 
     m = Matrix(bm)
@@ -56,4 +55,11 @@ bm = blockmodel(g, groups)
         S[1,1] / 20  S[1,2] / 25;
         S[2,1] / 25  S[2,2] / 20
     ]
+end
+
+@testset "ei_index" begin
+    @test ei_index(g, groups; level=:graph) == 0.0
+    @test ei_index(g, groups; level=:group)['a'] == (9 - 8) / (9 + 8)
+    @test ei_index(g, groups; level=:group)['b'] == (9 - 10) / (9 + 10)
+    @test ei_index(g, groups; level=:node)[2] == (2 - 3) / (2 + 3)
 end
