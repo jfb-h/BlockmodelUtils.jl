@@ -70,6 +70,7 @@ using Graphs, BlockmodelUtils
 g = erdos_renyi(20, 0.1)
 gs = rand(['a', 'b'], 20)
 bm = blockmodel(g, gs)
+```
 """
 function blockmodel(g::AbstractGraph, groups::AbstractVector; by = identity)
     p = sortperm(groups; by)
