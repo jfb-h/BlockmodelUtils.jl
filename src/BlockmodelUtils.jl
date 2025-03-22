@@ -3,10 +3,16 @@ module BlockmodelUtils
 using IterTools: groupby, partition
 using PrettyTables: pretty_table, ft_printf, @crayon_str
 using BlockArrays: BlockMatrix
-using Graphs: Graphs, AbstractGraph, AbstractSimpleGraph,
-    adjacency_matrix, density, is_directed
+using Graphs: Graphs, AbstractGraph, AbstractSimpleGraph
+using Graphs: adjacency_matrix, density, is_directed
+using Graphs: vertices, edges, src, dst, ne
+using Graphs: all_neighbors, inneighbors, outneighbors
+
+include("ei_index.jl")
 
 export Blockmodel, blockmodel
+
+export ei_index
 
 export permuteplot!, permuteplot
 export flowerplot!, flowerplot
