@@ -1,9 +1,9 @@
 module BlockmodelUtils
 
-import IterTools: groupby, partition
-import PrettyTables: pretty_table, ft_printf, @crayon_str
-import BlockArrays: BlockMatrix
-import Graphs: Graphs, AbstractGraph, AbstractSimpleGraph,
+using IterTools: groupby, partition
+using PrettyTables: pretty_table, ft_printf, @crayon_str
+using BlockArrays: BlockMatrix
+using Graphs: Graphs, AbstractGraph, AbstractSimpleGraph,
     adjacency_matrix, density, is_directed
 
 export Blockmodel, blockmodel
@@ -12,7 +12,6 @@ export permuteplot!, permuteplot
 export flowerplot!, flowerplot
 export densityplot!, densityplot
 
-# TODO: docs, workflows
 
 """
 Struct representing a graph's blocked adjacency matrix.
