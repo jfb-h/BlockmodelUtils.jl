@@ -80,7 +80,7 @@ save("bmplot.png", fig); nothing #hide
 
 # EI-Index
 
-A simple and useful metric for assessing the degree to which a set of edges in a network tends to within- or between-group linkage is the EI-Index introduced by Krackhardt & Stern (1988). It is defined as $\frac{E-I}{E+I}$ where $E$ is the number of external (i.e., between-group) edges and $I$ is the number of internal (i.e., within-group) edges. It can be computed as a graph-level, group-level, or node-level index. We can compute it with the `ei_index` function as follows:
+A simple and useful metric for assessing the degree to which a set of edges in a network tends to within- or between-group linkage is the EI-Index introduced by Krackhardt & Stern (1988). It is defined as $\frac{E-I}{E+I}$ where $E$ is the number of external (i.e., between-group) edges and $I$ is the number of internal (i.e., within-group) edges. It can be computed as a graph-level, group-level, or node-level index:
 
 ```@example
 using Graphs, BlockmodelUtils #hide
