@@ -1,7 +1,7 @@
 name = "BlockmodelUtils"
 uuid = "d9f899e1-303a-530d-8675-c26bf1ea3f35"
 authors = ["Jakob Hoffmann <jfb-hoffmann@homtail.de>"]
-version = "0.2.0"
+version = "0.2.1"
 
 [deps]
 BlockArrays = "8e7c35d0-a365-5155-bbbb-fb81a777f24e"
@@ -19,6 +19,6 @@ BlockmodelUtilsMakieExt = "Makie"
 BlockArrays = "1.4.0"
 Graphs = "1.12.0"
 IterTools = "1.10.0"
-Makie = "0.22"
+Makie = "0.23"
 PrettyTables = "2.4.0"
 julia = "1.10"
